@@ -3,8 +3,10 @@ import {
   Text,
   View,
   TextInput,
-  StyleSheet } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler';
+  StyleSheet,
+  TouchableOpacity
+
+} from 'react-native'
 
 class Login extends Component {
 
@@ -24,9 +26,9 @@ class Login extends Component {
   handleLogin = () => {
     if(this.state.email === "" || this.state.password === "") {
       alert("Log In details required")
-      return;
     }
-    alert('To the Dashboard')
+
+    this.props.navigation.navigate("Dashboard")
 
   }
 

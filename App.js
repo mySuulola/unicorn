@@ -25,8 +25,10 @@ import {
 import Login from './src/guest/Login';
 import Introduction from './src/guest/Introduction';
 import SignUp from './src/guest/SignUp';
+import Dashboard from './src/secure/Dashboard';
+import Profile from './src/secure/Profile';
+import UpdateProfile from './src/secure/UpdateProfile';
 
-// import {Introduction, Login} from "./src/index";
 
 
 class App extends Component {
@@ -38,18 +40,14 @@ class App extends Component {
 
 };
 
-// const DrawerStackGuest = createDrawerNavigator({
-//     Introduction: createStackNavigator({ Introduction, Login }, {headerMode: "none"}),
-//     // SignUp: createStackNavigator({ SignUp }),
-//     // Login: createStackNavigator({ Verification, Login, Passcode, SetPasscode, Bio }, {headerMode: "none"})
-//   }, {
-//     initialRouteName: 'Introduction',
-//   })
 
 const guestStack = createStackNavigator({
     Introduction: Introduction,
     Login: Login,
-    SignUp: SignUp
+    SignUp: SignUp,
+    Dashboard: Dashboard,
+    Profile: Profile,
+    UpdateProfile: UpdateProfile,
 },
     {
         headerMode: "none"
