@@ -11,6 +11,9 @@ import { Gravatar, GravatarApi } from "react-native-gravatar";
 const { width, height } = Dimensions.get("window");
 
 class Dashboard extends Component {
+  static navigationOptions = {
+    header: null,
+};
   render() {
     const email = "adetoye@gmail.com";
     return (
@@ -18,13 +21,14 @@ class Dashboard extends Component {
         <View
           style={{
             backgroundColor: "#24911f",
-            height: "30%"
+            height: 170
           }}
         />
         <View
           style={{
             backgroundColor: "white",
             height: 170,
+           marginHorizontal: '10%',
             position: "absolute",
             top: 80,
             left: 30,
@@ -61,6 +65,7 @@ class Dashboard extends Component {
             Welcome Oni Joshua
           </Text>
           <Text
+          onPress={ () => this.props.navigation.navigate("FacialRecognition") }
             style={{
               color: "rgba(8, 96, 238, 0.5)",
               marginBottom: 5
@@ -99,6 +104,7 @@ class Dashboard extends Component {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
+           onPress={ () => this.props.navigation.navigate("Wallet") }
             style={{
               width: width / 3,
               borderWidth: 0.6,
@@ -111,7 +117,7 @@ class Dashboard extends Component {
                 paddingTop: 10
               }}
             >
-              E-wallet
+              Wallet
             </Text>
           </TouchableOpacity>
           <TouchableOpacity

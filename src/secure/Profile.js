@@ -6,8 +6,9 @@ import Icon from "react-native-vector-icons/Ionicons";
 const {width, height} = Dimensions.get("window")
 
 class Profile extends Component {
-
-
+  static navigationOptions = {
+    header: null,
+  };
 
   render() {
     // const { firstName, middleName, surname, phoneNumber, email } = this.props
@@ -27,13 +28,28 @@ class Profile extends Component {
  style={styles.roundedProfileImage}
  />
  <Text style={{fontSize: 20, color: "rgba(8, 238, 27, 0.8)" }}>{`${firstName.slice(0,1).toUpperCase()}${firstName.slice(1)} ${surname.slice(0,1).toUpperCase()}${surname.slice(1)}`  }</Text>
-{/* <View style={styles.row}> */}
-<Text style={{
+ <View
+ style={{
+   flexDirection:"row",
+   justifyContent:"space-around",
+   width: "80%"
+ }}
+ >
+ <Text style={{
   fontSize: 13,
-  marginVertical: 10,
-  color: "black" }}>{ `Nigeria`  }</Text>
+  marginVertical: 5,
+  color: "black" }}>
+  { `Nigeria`  }
+  </Text>
+ <Text style={{
+  fontSize: 13,
+  marginVertical: 5,
+  color: "red" }}>
+  Unverified
+  </Text>
 
-{/* </View> */}
+ </View>
+
 
 
 
@@ -42,18 +58,18 @@ class Profile extends Component {
      <Icon
      name="md-call"
      size={30}
-     color="rgba(216, 49, 49, 0.5)"
+     color="rgba(8, 238, 27, 0.8)"
      style={{marginRight: 50, width: "30%", textAlign: "right" }}
      />
    <View style={{width: "60%", justifyContent: "flex-end" }}>
      <Text style={{color: "rgba(8, 238, 27, 0.8)", fontSize: 10}} > PHONE NUMBER </Text>
-     <Text style={{fontSize: 15, color: "black" }}>{ `0${phoneNumber}`  }</Text>
+     <Text style={{fontSize: 15, color: "black" }}>{ `${phoneNumber}`  }</Text>
    </View>
 
    </View>
    <View style={styles.row}>
    <Icon
-   color="rgba(216, 49, 49, 0.5)"
+   color="rgba(8, 238, 27, 0.8)"
    name="md-mail"
    size={30}
    style={{marginRight: 50, width: "30%", textAlign: "right" }}

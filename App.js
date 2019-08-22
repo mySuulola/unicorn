@@ -24,11 +24,16 @@ import {
 } from 'react-navigation';
 import Login from './src/guest/Login';
 import Introduction from './src/guest/Introduction';
+import ForgotPassword from './src/guest/ForgotPassword';
 import SignUp from './src/guest/SignUp';
 import Dashboard from './src/secure/Dashboard';
 import Profile from './src/secure/Profile';
 import UpdateProfile from './src/secure/UpdateProfile';
-
+import FacialRecognition from './src/secure/FacialRecognition';
+import EmailVerification from './src/guest/EmailVerification';
+import FingerPrint from './src/secure/FingerPrint';
+import Wallet from './src/secure/Wallet';
+import ResetPassword from './src/guest/ResetPassword';
 
 
 class App extends Component {
@@ -48,10 +53,14 @@ const guestStack = createStackNavigator({
     Dashboard: Dashboard,
     Profile: Profile,
     UpdateProfile: UpdateProfile,
-},
-    {
-        headerMode: "none"
-    });
+    FacialRecognition: FacialRecognition,
+    FingerPrint: FingerPrint,
+    EmailVerification: EmailVerification,
+    ForgotPassword: ForgotPassword,
+    Wallet: Wallet,
+    ResetPassword: ResetPassword,
+    EmailVerification: EmailVerification,
+  });
 const AppContainer = createAppContainer(guestStack);
 
 

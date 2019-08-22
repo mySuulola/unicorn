@@ -3,12 +3,16 @@ import {
   Text,
   View,
   TextInput,
+  TouchableOpacity,
+  ScrollView,
   StyleSheet } from 'react-native'
-import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import Flag from 'react-native-flags';
 
 
 class SignUp extends Component {
+  static navigationOptions = {
+    header: null,
+};
 
 
   state = {
@@ -22,18 +26,18 @@ class SignUp extends Component {
   }
 
   handleRegistration = () => {
-    if(
-      this.state.firstName === "" ||
-      this.state.lastName === "" ||
-      this.state.password === "" ||
-      this.state.confirmPassword === "" ||
-      this.state.phoneNumber === "" ||
-      this.state.email === "" ||
-      this.state.password === "") {
-      alert("Log In details required")
-      return;
-    }
-    alert('To the Dashboard')
+    // if(
+    //   this.state.firstName === "" ||
+    //   this.state.lastName === "" ||
+    //   this.state.password === "" ||
+    //   this.state.confirmPassword === "" ||
+    //   this.state.phoneNumber === "" ||
+    //   this.state.email === "" ||
+    //   this.state.password === "") {
+    //   alert("Log In details required")
+    //   return;
+    // }
+    this.props.navigation.navigate("EmailVerification")
 
   }
 

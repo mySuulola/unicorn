@@ -1,39 +1,40 @@
 import React, {Component} from "react";
 import {
     View,
-    ScrollView,
-    Text, StyleSheet, TextInput} from "react-native";
+    Text,
+    StyleSheet,
+    TextInput
+} from "react-native";
 import Flag from 'react-native-flags';
 
 class Introduction extends Component{
+    static navigationOptions = {
+        header: null,
+    };
     state = {
-
+        text: ""
     };
     render(){
         return (
-            <ScrollView>
             <View style={styles.container}>
                 <View style={styles.appNameArea}>
-                    <Text style={{fontSize: 48, fontWeight: "bold", color: "#fff"}}>National ID</Text>
+                    <Text style={{fontSize: 42, fontWeight: "bold", color: "#fff"}}>National ID</Text>
                     <View style={{marginVertical: 16, height: 5, backgroundColor: "#fff", maxWidth: 150, width: "30%"}} />
-                    <Text style={{fontSize: 28, color: "#fff"}}>Are you a Nigerian Citizen but out of the country? Register and get your National Identity Number.</Text>
+                    <Text style={{fontSize: 25, color: "#fff"}}>Are you a Nigerian Citizen but out of the country? Register and get your National Identity Number.</Text>
                 </View>
                 <View style={styles.buttonArea}>
                     <Text style={styles.buttonAreaText}>Register to get started</Text>
                     <View style={{flexDirection: "row", alignItems:"center"}}>
-                        {/* <Flag
-                            code="NG"
-                            size={32}
-                        /> */}
-                        {/* <TextInput placeholder={"+234"} style={styles.countryCodeInput} /> */}
                         <TextInput
                         placeholder={"Email Address"}
-                        onChangeText={ () => this.props.navigation.navigate("Login") }
+                        onChangeText={ (text) => {
+                            this.setState({text})
+                            this.props.navigation.navigate("Login",{text: text} )
+                        } }
                         style={styles.input} />
                     </View>
                 </View>
             </View>
-            </ScrollView>
         );
     }
 }

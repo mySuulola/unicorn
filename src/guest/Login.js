@@ -9,16 +9,19 @@ import {
 } from 'react-native'
 
 class Login extends Component {
+  static navigationOptions = {
+    header: null,
+};
 
 
   state = {
-    email: "",
+    email: this.props.navigation.state.params.text,
     password: ""
   }
 
 
   componentDidMount() {
-
+    console.log(this.props)
     this.refs.email.focus()
 
   }
@@ -26,10 +29,9 @@ class Login extends Component {
   handleLogin = () => {
     if(this.state.email === "" || this.state.password === "") {
       alert("Log In details required")
+    }else {
+      this.props.navigation.navigate("Dashboard")
     }
-
-    this.props.navigation.navigate("Dashboard")
-
   }
 
 
@@ -66,7 +68,7 @@ class Login extends Component {
         keyboardType="email-address"
         // focusKeyboard={true}
         autoFocus={true}
-        caretHidden={false}
+        // caretHidden={false}
         />
         <TextInput
         ref="password"
@@ -77,6 +79,7 @@ class Login extends Component {
         style={styles.input}
         />
         <Text
+        onPress={ () => this.props.navigation.navigate("ForgotPassword") }
         style={{
           fontSize: 12,
           paddingVertical: 4,
@@ -115,7 +118,7 @@ class Login extends Component {
           color: "rgba(10, 65, 218, 0.7)",
           textAlign:"center"
         }}
-        >Sign Up</Text>
+        >Create Account</Text>
 
 
 
@@ -141,7 +144,8 @@ const styles = StyleSheet.create({
     borderColor: "#24911f",
     borderBottomWidth: 1,
     paddingHorizontal: 16,
-    fontSize: 16
+    fontSize: 16,
+    marginVertical: 15
 }
 })
 
