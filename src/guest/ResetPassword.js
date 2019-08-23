@@ -18,6 +18,11 @@ class ResetPassword extends Component {
     confirmPassword: ""
   }
 
+  handleReset = () => {
+    alert("Password Reset")
+    this.props.navigation.navigate("Login")
+  }
+
   render() {
     return (
       <View style={{flex: 1}}>
@@ -67,7 +72,7 @@ class ResetPassword extends Component {
         />
 
         <TouchableOpacity
-        onPress={this.handleLogin}
+        onPress={this.handleReset}
         style={{
           backgroundColor:"rgba(14, 180, 14, 0.9)",
           width: "80%",

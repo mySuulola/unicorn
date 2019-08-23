@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import { Text, View, Dimensions, Image, ScrollView } from "react-native";
+import {
+  Text,
+  TouchableOpacity,
+  View,
+  Dimensions,
+  Image,
+  ScrollView
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import {  } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 class FingerPrint extends Component {
@@ -31,6 +39,7 @@ class FingerPrint extends Component {
             color: "green"
           }}
           >Welcome Ogbeni</Text> */}
+
           <Text
             style={{
               fontSize: 20,
@@ -50,6 +59,52 @@ class FingerPrint extends Component {
             </Text>
             finger on the reader{" "}
           </Text>
+          <View
+          style={{
+            flexDirection:"row",
+            justifyContent:"space-around",
+            width: "80%"
+        }}
+          >
+            {/* <Text
+            >Verify</Text> */}
+            <TouchableOpacity
+            style={{
+              flexDirection:"row",
+              alignItems:"center"
+            }}
+            >
+            <Icon  name="md-refresh" size={30} color="rgba(8, 238, 27, 0.8)" />
+            <Text
+            style={{
+              marginLeft: 10
+            }}
+            >Refresh</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            onPress={ () => this.props.navigation.navigate("DocumentRecognition")  }
+            style={{
+              flexDirection:"row",
+              alignItems:"center",
+              // backgroundColor:"red",
+              // paddingVertical: 3,
+              // paddingHorizontal: 17,
+              // borderWidth: 1,
+              // borderColor:"white",
+              // borderRadius: 10
+            }}
+            >
+            <Icon  name="md-fastforward" size={30} color="rgba(8, 238, 27, 0.8)" />
+            <Text
+            style={{
+              marginLeft: 5
+            }}
+            >Verify</Text>
+            </TouchableOpacity>
+
+
+          </View>
         </View>
 
         <View
@@ -59,9 +114,6 @@ class FingerPrint extends Component {
           // borderColor: "red",
           alignItems:"center",
           justifyContent:"center"
-
-
-
         }}
         >
                   <View
@@ -196,7 +248,7 @@ class FingerPrint extends Component {
           <Text
             style={{
               color: "white",
-              fontSize: 25,
+              fontSize: 23,
               textAlign: "center",
               paddingHorizontal: 20,
               paddingVertical: 10

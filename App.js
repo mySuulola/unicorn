@@ -34,6 +34,8 @@ import EmailVerification from './src/guest/EmailVerification';
 import FingerPrint from './src/secure/FingerPrint';
 import Wallet from './src/secure/Wallet';
 import ResetPassword from './src/guest/ResetPassword';
+import UserDetailOutput from './src/secure/UserDetailOutput';
+import DocumentRecognition from './src/secure/DocumentRecognition';
 
 
 class App extends Component {
@@ -60,6 +62,8 @@ const guestStack = createStackNavigator({
     Wallet: Wallet,
     ResetPassword: ResetPassword,
     EmailVerification: EmailVerification,
+    UserDetailOutput: UserDetailOutput,
+    DocumentRecognition: DocumentRecognition
   });
 const AppContainer = createAppContainer(guestStack);
 
