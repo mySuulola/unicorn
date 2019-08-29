@@ -88,6 +88,23 @@ class Dashboard extends Component {
           }}
         >
           <TouchableOpacity
+          onPress={ () => alert("an about page") }
+          style={{
+              flex: 1,
+              borderWidth: 0.6,
+              borderColor: "rgba(75, 75, 75, 0.8)"
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "center",
+                paddingTop: 10
+              }}
+            >
+              About
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
           onPress={ () => this.props.navigation.navigate("Profile") }
             style={{
               flex: 1,
@@ -104,7 +121,7 @@ class Dashboard extends Component {
               Profile
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
            onPress={ () => this.props.navigation.navigate("Wallet") }
             style={{
               width: width / 3,
@@ -120,8 +137,9 @@ class Dashboard extends Component {
             >
               Wallet
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity
+          onPress={ () => this.props.navigation.navigate("Introduction") }
             style={{
               flex: 1,
               borderWidth: 0.6,
