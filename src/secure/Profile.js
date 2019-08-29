@@ -1,98 +1,132 @@
-import React, { Component } from 'react'
-import { Text, View, TextInput, Dimensions ,TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
-import {Gravatar, GravatarApi} from 'react-native-gravatar';
+import React, { Component } from "react";
+import {
+  Text,
+  View,
+  TextInput,
+  Dimensions,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView
+} from "react-native";
+import { Gravatar, GravatarApi } from "react-native-gravatar";
 import Icon from "react-native-vector-icons/Ionicons";
+import Navbar from "../component/Navbar";
 
-const {width, height} = Dimensions.get("window")
+const { width, height } = Dimensions.get("window");
 
 class Profile extends Component {
   static navigationOptions = {
-    header: null,
+    header: null
   };
 
   render() {
     // const { firstName, middleName, surname, phoneNumber, email } = this.props
-    const firstName = 'Oni'
-    const surname = 'Joshua'
-    const phoneNumber = '07061972413'
-    const email = 'adetoye@gmail.com'
+    const firstName = "Oni";
+    const surname = "Joshua";
+    const phoneNumber = "07061972413";
+    const email = "adetoye@gmail.com";
     return (
- <ScrollView>
-<View style={styles.container}>
-<Text style={[styles.text, {textAlign: "center", fontSize: 20, marginBottom:5}]}>Profile Information</Text>
-<Gravatar options={{
-   email: email ,
-   parameters: { "size": "200", "d": "mm" },
-   secure: true
-  }}
- style={styles.roundedProfileImage}
- />
- <Text style={{fontSize: 20, color: "rgba(8, 238, 27, 0.8)" }}>{`${firstName.slice(0,1).toUpperCase()}${firstName.slice(1)} ${surname.slice(0,1).toUpperCase()}${surname.slice(1)}`  }</Text>
- <View
- style={{
-   flexDirection:"row",
-   justifyContent:"space-around",
-   width: "80%"
- }}
- >
- <Text style={{
-  fontSize: 13,
-  marginVertical: 5,
-  color: "black" }}>
-  { `Nigeria`  }
-  </Text>
- <Text style={{
-  fontSize: 13,
-  marginVertical: 5,
-  color: "red" }}>
-  Unverified
-  </Text>
+      <ScrollView>
+        <View style={styles.container}>
+          <Navbar
+            onPressHome={() => this.props.navigation.navigate("Dashboard")}
+          />
+          <Text
+            style={[
+              styles.text,
+              { textAlign: "center", fontSize: 20, marginBottom: 5 }
+            ]}
+          >
+            Profile Information
+          </Text>
+          <Gravatar
+            options={{
+              email: email,
+              parameters: { size: "200", d: "mm" },
+              secure: true
+            }}
+            style={styles.roundedProfileImage}
+          />
+          <Text
+            style={{ fontSize: 20, color: "rgba(8, 238, 27, 0.8)" }}
+          >{`${firstName.slice(0, 1).toUpperCase()}${firstName.slice(
+            1
+          )} ${surname.slice(0, 1).toUpperCase()}${surname.slice(1)}`}</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              width: "80%"
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 13,
+                marginVertical: 5,
+                color: "black"
+              }}
+            >
+              {`Nigeria`}
+            </Text>
+            <Text
+              style={{
+                fontSize: 13,
+                marginVertical: 5,
+                color: "red"
+              }}
+            >
+              Unverified
+            </Text>
+          </View>
 
- </View>
+          <View style={[styles.card]}>
+            <View style={styles.row}>
+              <Icon
+                name="md-call"
+                size={30}
+                color="rgba(8, 238, 27, 0.8)"
+                style={{ marginRight: 50, width: "30%", textAlign: "right" }}
+              />
+              <View style={{ width: "60%", justifyContent: "flex-end" }}>
+                <Text style={{ color: "rgba(8, 238, 27, 0.8)", fontSize: 10 }}>
+                  {" "}
+                  PHONE NUMBER{" "}
+                </Text>
+                <Text
+                  style={{ fontSize: 15, color: "black" }}
+                >{`${phoneNumber}`}</Text>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Icon
+                color="rgba(8, 238, 27, 0.8)"
+                name="md-mail"
+                size={30}
+                style={{ marginRight: 50, width: "30%", textAlign: "right" }}
+              />
+              <View style={{ width: "60%" }}>
+                <Text style={{ color: "rgba(8, 238, 27, 0.8)", fontSize: 10 }}>
+                  {" "}
+                  EMAIL{" "}
+                </Text>
+                <Text
+                  style={{ fontSize: 15, color: "black" }}
+                >{`${email.toLowerCase()}`}</Text>
+              </View>
+            </View>
+          </View>
+          <Text
+            onPress={() => this.props.navigation.navigate("UpdateProfile")}
+            style={{
+              color: "rgba(8, 96, 238, 0.5)",
+              fontSize: 13,
+              marginVertical: 15
+            }}
+          >
+            Edit Profile
+          </Text>
 
-
-
-
- <View style={[styles.card]}>
-   <View style={styles.row}>
-     <Icon
-     name="md-call"
-     size={30}
-     color="rgba(8, 238, 27, 0.8)"
-     style={{marginRight: 50, width: "30%", textAlign: "right" }}
-     />
-   <View style={{width: "60%", justifyContent: "flex-end" }}>
-     <Text style={{color: "rgba(8, 238, 27, 0.8)", fontSize: 10}} > PHONE NUMBER </Text>
-     <Text style={{fontSize: 15, color: "black" }}>{ `${phoneNumber}`  }</Text>
-   </View>
-
-   </View>
-   <View style={styles.row}>
-   <Icon
-   color="rgba(8, 238, 27, 0.8)"
-   name="md-mail"
-   size={30}
-   style={{marginRight: 50, width: "30%", textAlign: "right" }}
-
-    />
-   <View style={{width: "60%"}} >
-   <Text style={{color: "rgba(8, 238, 27, 0.8)", fontSize: 10}} > EMAIL </Text>
-   <Text style={{fontSize: 15, color: "black" }}>{ `${email.toLowerCase()}`  }</Text>
-   </View>
-
-   </View>
-
- </View>
- <Text
-onPress={ () => this.props.navigation.navigate("UpdateProfile") }
-style={{
-  color: "rgba(8, 96, 238, 0.5)",
-  fontSize: 13,
-  marginVertical: 15
- }}>Edit Profile</Text>
-
-
- {/* <View style={[styles.card, {marginTop: 20}]}>
+          {/* <View style={[styles.card, {marginTop: 20}]}>
    <View style={styles.row}>
      <Icon
      name="md-call"
@@ -113,10 +147,9 @@ style={{
    </View>
 
  </View> */}
-
-</View>
-  </ScrollView>
-    )
+        </View>
+      </ScrollView>
+    );
   }
 }
 
@@ -124,7 +157,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     minHeight: height - 73,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     paddingHorizontal: 30,
     paddingVertical: 5,
     paddingTop: 60,
@@ -139,26 +172,26 @@ const styles = StyleSheet.create({
     marginVertical: 5
   },
   roundedProfileImage: {
-    width:100,
-    height:100,
-    borderWidth:3,
-    borderColor:'white',
-    borderRadius:50
+    width: 100,
+    height: 100,
+    borderWidth: 3,
+    borderColor: "white",
+    borderRadius: 50
   },
   text: {
     fontSize: 14,
-    color: 'rgba(8, 238, 27, 0.5)'
+    color: "rgba(8, 238, 27, 0.5)"
   },
   card: {
-    width: '100%',
+    width: "100%",
     borderRadius: 15,
     paddingHorizontal: 20,
     paddingVertical: 40,
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderBottomWidth: 0,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 1,
     shadowRadius: 8,
@@ -166,9 +199,8 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginTop: 10,
-   backgroundColor: "rgb(250, 250, 250)"
+    backgroundColor: "rgb(250, 250, 250)"
   }
-})
+});
 
-
-export default Profile
+export default Profile;

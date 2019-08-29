@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity, Image } from "react-native";
 import ImagePicker from "react-native-image-picker";
 import Icon from "react-native-vector-icons/Ionicons";
+import Navbar from "../component/Navbar";
 
 class FacialRecognition extends Component {
   static navigationOptions = {
@@ -13,7 +14,7 @@ class FacialRecognition extends Component {
   };
 
   processImage = () => {
-    this.props.navigation.navigate("FingerPrint")
+    this.props.navigation.navigate("FingerPrint");
   };
 
   handleImagePicker = () => {
@@ -46,6 +47,10 @@ class FacialRecognition extends Component {
           alignItems: "center"
         }}
       >
+        {/*  */}
+        <Navbar
+          onPressHome={() => this.props.navigation.navigate("Dashboard")}
+        />
         <View
           style={{
             width: "80%",
@@ -82,28 +87,30 @@ class FacialRecognition extends Component {
           </View>
           {this.state.pickedImage === null && (
             <View
-            style={{
-              paddingVertical: 15,
-              marginTop: 50,
-              paddingHorizontal: 10
-            }}
+              style={{
+                paddingVertical: 15,
+                marginTop: 50,
+                paddingHorizontal: 10
+              }}
             >
               <Text
-              style={{
-                fontSize: 16,
-                textAlign:"center",
-                color:"green"
-              }}
-              >Click on the Icon above to capture your face</Text>
+                style={{
+                  fontSize: 16,
+                  textAlign: "center",
+                  color: "green"
+                }}
+              >
+                Click on the Icon above to capture your face
+              </Text>
             </View>
           )}
           {this.state.pickedImage && (
             <View
-            style={{
-              flexDirection:"row",
-              justifyContent:"space-around",
-              paddingVertical: 20
-            }}
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-around",
+                paddingVertical: 20
+              }}
             >
               <Icon
                 onPress={this.processImage}

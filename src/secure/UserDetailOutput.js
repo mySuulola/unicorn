@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Gravatar, GravatarApi } from "react-native-gravatar";
 import Icon from "react-native-vector-icons/Ionicons";
-// import { CheckBox } from "react-native-elements";
+import { CheckBox } from "react-native-elements";
 
 const { width, height } = Dimensions.get("window");
 
@@ -48,11 +48,14 @@ const TextInputWithLabel = props => {
 class UserDetailOutput extends Component {
   static navigationOptions = {
     header: null,
-    terms: false
   };
 
   handleConfirmDetails = () => {
-    alert("Working on the payment page")
+    this.props.navigation.navigate("Wallet");
+  }
+
+  state = {
+    terms: false
   }
 
   render() {
@@ -72,6 +75,7 @@ class UserDetailOutput extends Component {
           >
             User Information Summary
           </Text>
+          {/* This image is basically the image captured on the facial recognition page. This will be used for the NIN capturing */}
           {/* <Image source="" style={{
             width: 300,
             height:300,
@@ -80,26 +84,34 @@ class UserDetailOutput extends Component {
           <TextInputWithLabel label="Full Name" value="Oni Joshua" />
           <TextInputWithLabel label="Date of Birth" value="17/05/1983" />
           <TextInputWithLabel label="Gender" value="Male" />
+          <TextInputWithLabel label="Address" value="711-2880 Nulla St.Mankato Mississippi 96522" />
           <TextInputWithLabel label="Passport Number" value="A07654327" />
 
-          {/* <CheckBox
+          <CheckBox
+          containerStyle={{
+            backgroundColor:"white",
+            borderWidth: 0,
+            // padding: 0,
+            paddingHorizontal: 0,
+            margin: 0
+          }}
   title="By clicking Confirm, you agree the information presented above is true and valid "
   checked={this.state.terms}
   checkedColor="green"
   onIconPress={() => this.setState({ terms: !this.state.terms })}
-          /> */}
+          />
 
           <TouchableOpacity
-            // disabled={!this.state.terms}
+            disabled={!this.state.terms}
             onPress={this.handleConfirmDetails}
-            style={{
+            style={[{
               backgroundColor: "rgba(14, 180, 14, 0.9)",
               width: "80%",
               marginHorizontal: "10%",
               marginTop: 10,
               paddingVertical: 10,
               borderRadius: 10
-            }}
+            }, !this.state.terms && { backgroundColor:"rgba(51, 51, 51, 0.5)" }]}
           >
             <Text
               style={{
@@ -165,4 +177,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default UserDetailOutput;
+export default UserDetailOutput
