@@ -65,8 +65,8 @@ class Dashboard extends Component {
             Welcome Oni Joshua
           </Text>
           <Text
-          //  FacialRecognition
-          onPress={ () => this.props.navigation.navigate("UserDetailOutput") }
+          //
+          onPress={ () => this.props.navigation.navigate("FacialRecognition") }
             style={{
               color: "rgba(8, 96, 238, 0.5)",
               marginBottom: 5
