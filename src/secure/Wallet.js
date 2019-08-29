@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
+import {
+  Text,
+  View,
+  Image,
+  TouchableOpacity } from 'react-native'
 import Flag from "react-native-flags";
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -7,58 +11,75 @@ import Icon from "react-native-vector-icons/Ionicons";
 class Wallet extends Component {
 
   static navigationOptions = {
-      title: "Wallet"
+      title: "Make Payment"
   };
   render() {
     return (
       <View style={{
         flex: 1,
-        backgroundColor:"rgba(197, 197, 197, 0.4)",
+        backgroundColor:"white",
         justifyContent:"center",
         alignItems:"center"
         }}>
           <View
           style={{
-            height: 20,
-            width: "80%",
+            height: "30%",
+            width: "100%",
             paddingVertical: 40,
-            // backgroundColor:"red",
+            backgroundColor:"rgba(197, 197, 197, 0.4)",
             justifyContent:"center",
-            marginVertical: 20,
+            // marginVertical: 20,
             alignItems:"center"
           }}
           >
-            <Text
-            style={{
-              fontSize: 30
-            }}
-            >Make Payment</Text>
+          <Image
+          source={require("../img/flagwave.png")}
+
+          style={{
+            width: "100%",
+            resizeMode: "contain"
+          }}
+          />
+
+
 
           </View>
 
           <View
           style={{
-            width: "80%",
-            paddingVertical: 40,
+            flex: 1,
+            marginBottom: 60,
             backgroundColor:"white",
             justifyContent:"center",
-            marginVertical: 20,
             alignItems:"center",
-            borderRadius: 10
           }}
           >
             <Text
             style={{
               paddingVertical: 20,
-              fontSize: 25
+              color: "rgba(197, 197, 197, 0.7)",
+              fontSize: 25,
             }}
-            >Total Cost</Text>
-            {/* <View
+            >Payment Description</Text>
+
+            <Text
             style={{
-              width:"80%",
-              borderWidth: 0.6,
+              fontSize: 15,
+              color: "rgba(28, 173, 28, 0.6)"
             }}
-            /> */}
+            >
+              Name: Oni Joshua
+            </Text>
+            <Text
+            style={{
+              fontSize: 13,
+              marginVertical:5,
+              color: "rgba(28, 173, 28, 0.6)"
+            }}
+            >
+              Transaction Type: NIN Registration
+            </Text>
+
             <View
             style={{
               flexDirection:"row",
@@ -69,19 +90,17 @@ class Wallet extends Component {
               <View
               style={{
                 height: 50,
-                width: "40%",
-                // backgroundColor:"red",
+                marginTop: 20,
                 padding: 10,
                 alignItems:"center",
                 justifyContent:"center"
               }}
               >
-                <Flag code="NG" size={32} />
+                <Flag code="US" size={32} />
               </View>
               <View
               style={{
                 height: 50,
-                width: "60%",
                 alignItems:"flex-end",
                 paddingHorizontal: 20,
                 justifyContent:"center"
@@ -102,7 +121,7 @@ class Wallet extends Component {
                   fontSize: 22,
                   fontWeight:"bold"
                 }}
-                >N50,000</Text>
+                >$150</Text>
 
               </View>
 
@@ -111,6 +130,9 @@ class Wallet extends Component {
           </View>
 
           <TouchableOpacity
+          onPress={ () => this.props.navigation.navigate("TranzfarLogin") }
+
+
             style={{
               backgroundColor: "rgba(31, 60, 226, 0.8)",
               position: "absolute",

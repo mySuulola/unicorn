@@ -36,6 +36,8 @@ import Wallet from './src/secure/Wallet';
 import ResetPassword from './src/guest/ResetPassword';
 import UserDetailOutput from './src/secure/UserDetailOutput';
 import DocumentRecognition from './src/secure/DocumentRecognition';
+import TranzfarLogin from './src/secure/TranzfarLogin';
+
 
 
 class App extends Component {
@@ -63,7 +65,8 @@ const guestStack = createStackNavigator({
     ResetPassword: ResetPassword,
     EmailVerification: EmailVerification,
     UserDetailOutput: UserDetailOutput,
-    DocumentRecognition: DocumentRecognition
+    DocumentRecognition: DocumentRecognition,
+    TranzfarLogin: TranzfarLogin
   });
 const AppContainer = createAppContainer(guestStack);
 
