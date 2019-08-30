@@ -35,13 +35,6 @@ class FingerPrint extends Component {
             alignItems: "center"
           }}
         >
-          {/* <Text
-          style={{
-            fontSize:30,
-            marginTop: 15,
-            color: "green"
-          }}
-          >Welcome Ogbeni</Text> */}
 
           <Text
             style={{
